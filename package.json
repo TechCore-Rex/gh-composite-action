@@ -1,0 +1,12 @@
+{
+  "name": "TechCore-GH-Action",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "repository": "https://github.com/TechCore-Rex/gh-action.git",
+  "author": "TechCore Engineering",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "config": "^3.3.7"
+  }
+}
