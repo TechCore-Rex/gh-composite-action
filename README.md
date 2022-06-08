@@ -1,6 +1,6 @@
-## TechCore Github Action
+## TechCore Composite Github Action
 
-This Github Action builds and uploads your docker image to the TechCore Platform.
+This a temporary Github Action that builds and uploads your docker image to the TechCore Platform. Using an ECR Plugin and the main TechCore Plugin.
 
 #### Support
 
