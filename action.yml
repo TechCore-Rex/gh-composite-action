@@ -21,7 +21,7 @@ runs:
       continue-on-error: true
       shell: bash
       run: |
-        aws ecr create-repository --repository-name ${{inputs.image-repo-name}}
+        aws ecr create-repository --repository-name ${{inputs.image-repo-name}} --region us-east-1
     - name: Build, tag, and push image to Amazon ECR
       env:
         ECR_REPOSITORY: ${{ inputs.image-repo-name }}
