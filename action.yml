@@ -13,8 +13,6 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: "Echo env"
-      run: echo "$env"
     - name: Build tag and push docker image.
       uses: docker://ghcr.io/kciter/aws-ecr-action:latest
     - name: Build tag and push docker image.
