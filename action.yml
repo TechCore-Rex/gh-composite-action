@@ -15,8 +15,6 @@ runs:
   steps:
     - name: Build tag and push docker image.
       uses: docker://ghcr.io/kciter/aws-ecr-action:latest
-    - name: Build tag and push docker image.
-      uses: docker://ghcr.io/kciter/aws-ecr-action:latest
       with:
         access_key_id: x
         secret_access_key: x
