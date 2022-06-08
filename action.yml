@@ -9,7 +9,7 @@ inputs:
     required: true
   docker-args: # id of input
     description: "The TechCore Environment you want to target"
-    required: true
+    required: false
   image-repo-name: # id of input
     description: "ECR Repository to use"
     required: true
