@@ -24,7 +24,7 @@ runs:
         aws ecr create-repository --repository-name ${{inputs.image-repo-name}} --region us-east-1
     - name: Build, tag, and push image to Amazon ECR
       env:
-        ECR_REGISTRY: techcore
+        ECR_REGISTRY: 930245254249.dkr.ecr.us-east-1.amazonaws.com
         ECR_REPOSITORY: ${{ inputs.image-repo-name }}
         IMAGE_TAG: ${{ github.sha }}
       shell: bash
