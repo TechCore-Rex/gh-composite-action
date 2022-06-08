@@ -20,6 +20,9 @@ runs:
     - name: Build tag and push docker image.
       uses: docker://ghcr.io/kciter/aws-ecr-action:latest
       with:
+        access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        account_id: ${{ secrets.AWS_ACCOUNT_ID }}
         repo: ${{ inputs.image-repo-name }}
         region: us-east-1
         tags: latest,${{ github.sha }}
