@@ -20,6 +20,7 @@ runs:
       env:
         ECR_REPOSITORY: ${{ inputs.image-repo-name }}
         IMAGE_TAG: ${{ github.sha }}
+      shell: bash
       run: |
         docker build -t $ECR_REPOSITORY/$ECR_REPOSITORY:$IMAGE_TAG ${{ input.docker-args }} .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
