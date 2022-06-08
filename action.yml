@@ -7,19 +7,19 @@ inputs:
   environment: # id of input
     description: "The TechCore Environment you want to target"
     required: true
+  docker-args: # id of input
+    description: "The TechCore Environment you want to target"
+    required: true
   image-repo-name: # id of input
     description: "ECR Repository to use"
     required: true
 runs:
   using: "composite"
   steps:
-    - name: Build tag and push docker image.
-      uses: docker://ghcr.io/kciter/aws-ecr-action:latest
-      with:
-        access_key_id: ${{ secrets.ECR_AWS_ACCESS_KEY_ID }}
-        secret_access_key: ${{ secrets.ECR_AWS_SECRET_ACCESS_KEY }}
-        account_id: ${{ secrets.ECR_AWS_ACCOUNT_ID }}
-        repo: ${{ inputs.image-repo-name }}
-        region: us-east-1
-        tags: latest,${{ github.sha }}
-        create_repo: true
+    - name: Build, tag, and push image to Amazon ECR
+      env:
+        ECR_REPOSITORY: ${{ inputs.image-repo-name }}
+        IMAGE_TAG: ${{ github.sha }}
+      run: |
+        docker build -t $ECR_REPOSITORY/$ECR_REPOSITORY:$IMAGE_TAG ${{ input.docker-args }} .
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
