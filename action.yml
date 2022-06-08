@@ -17,6 +17,10 @@ runs:
   using: "composite"
   steps:
     - uses: actions/checkout@v3
+    - name: Create repo if doesnt exist
+      continue-on-error: true
+      run: |
+        aws ecr create-repository --repository-name ${{inputs.image-repo-name}}
     - name: Build, tag, and push image to Amazon ECR
       env:
         ECR_REPOSITORY: ${{ inputs.image-repo-name }}
@@ -24,5 +28,4 @@ runs:
       shell: bash
       run: |
         docker build -t $ECR_REPOSITORY/$ECR_REPOSITORY:$IMAGE_TAG ${{inputs.docker-args}} .
-        aws ecr create-repository --repository-name ${{inputs.image-repo-name}}
         docker push $ECR_REPOSITORY/$ECR_REPOSITORY:$IMAGE_TAG
