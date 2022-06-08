@@ -4,8 +4,11 @@ inputs:
   techcore-api-key: # id of input
     description: "API Key from the TechCore Platform"
     required: true
+  environment: # id of input
+    description: "The TechCore Environment you want to target"
+    required: true
   image-repo-name: # id of input
-    description: "API Key from the TechCore Platform"
+    description: "ECR Repository to use"
     required: true
 runs:
   using: "composite"
