@@ -4,7 +4,7 @@ inputs:
   techcore-api-key: # id of input
     description: "API Key from the TechCore Platform"
     required: true
-  docker-repo-name: # id of input
+  image-repo-name: # id of input
     description: "API Key from the TechCore Platform"
     required: true
 runs:
