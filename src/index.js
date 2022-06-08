@@ -1,5 +1,5 @@
 const core = require("@actions/core");
-export function handler() {
+function handler() {
   console.log("running handler");
   const apiKey = core.getInput("techcore-api-key");
   core.setOutput("TECHCORE_IMAGE_REPO", "MYCUSTOMREPO");
@@ -16,3 +16,5 @@ if (IS_GITHUB_ACTION) {
 } else {
   handler();
 }
+
+module.exports = handler;
