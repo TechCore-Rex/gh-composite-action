@@ -30,7 +30,6 @@ runs:
       shell: bash
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ${{inputs.docker-args}} .
-        aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 930245254249.dkr.ecr.us-east-1.amazonaws.com
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
     - name: Deploy built image to specified TechCore Namespace
       uses: TechCore-Rex/gh-action@latest
