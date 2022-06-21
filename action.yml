@@ -4,8 +4,8 @@ inputs:
   techcore-api-key: # id of input
     description: "API Key from the TechCore Platform"
     required: true
-  hostname: # id of input
-    description: "The TechCore Environment you want to target"
+  env-name: # id of input
+    description: "The TechCore Name of the Environment you want to target"
     required: true
   docker-args: # id of input
     description: "The TechCore Environment you want to target"
@@ -36,4 +36,5 @@ runs:
       with:
         techcore-api-key: ${{ inputs.techcore-api-key }}
         hostname: ${{ inputs.hostname }}
+        env-name: ${{ inputs.env-name }}
         image: 930245254249.dkr.ecr.us-east-1.amazonaws.com/${{ inputs.image-repo-name }}:${{ github.sha }}
