@@ -8,7 +8,7 @@ inputs:
     description: "The TechCore Name of the Environment you want to target"
     required: true
   docker-args: # id of input
-    description: "The TechCore Environment you want to target"
+    description: "Docker Arguments"
     required: false
   image-repo-name: # id of input
     description: "ECR Repository to use"
@@ -35,6 +35,5 @@ runs:
       uses: TechCore-Rex/gh-action@latest
       with:
         techcore-api-key: ${{ inputs.techcore-api-key }}
-        hostname: ${{ inputs.hostname }}
         env-name: ${{ inputs.env-name }}
         image: 930245254249.dkr.ecr.us-east-1.amazonaws.com/${{ inputs.image-repo-name }}:${{ github.sha }}
