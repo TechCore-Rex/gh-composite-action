@@ -23,12 +23,10 @@ runs:
   using: "composite"
   steps:
     - uses: actions/checkout@v3
-    - name: Echo env variables
-      continue-on-error: true
+    - name: Echo artifactory
       shell: bash
       run: |
-        echo ${{inputs.artifactory-user}}
-        echo ${{inputs.artifactory-secret}}
+        echo "${{inputs.artifactory-user}} ${{inputs.artifactory-secret}}"
     - name: Create repo if doesnt exist
       continue-on-error: true
       shell: bash
